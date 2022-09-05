@@ -15,29 +15,15 @@ namespace Faisal.Scene.Home
             SetAllButtonListener();
         }
 
-        private void SetPlayButtonListener(Button button)
-        {
-            button.onClick.RemoveAllListeners();
-            button.onClick.AddListener(OnClickPlayButton);
-        }
-
-        private void SetThemeButtonListener(Button button)
-        {
-            button.onClick.RemoveAllListeners();
-            button.onClick.AddListener(OnClickThemeButton);
-        }
-
-        private void SetExitButtonListener(Button button)
-        {
-            button.onClick.RemoveAllListeners();
-            button.onClick.AddListener(OnClickQuitButton);
-        }
-
         private void SetAllButtonListener()
         {
-            SetPlayButtonListener(_PlayButton);
-            SetThemeButtonListener(_ThemeButton);
-            SetExitButtonListener(_ExitButton);
+            _PlayButton.onClick.RemoveAllListeners();
+            _ThemeButton.onClick.RemoveAllListeners();
+            _ExitButton.onClick.RemoveAllListeners();
+
+            _PlayButton.onClick.AddListener(OnClickPlayButton);
+            _ThemeButton.onClick.AddListener(OnClickThemeButton);
+            _ExitButton.onClick.AddListener(OnClickQuitButton);
         }
 
         public void OnClickPlayButton()
