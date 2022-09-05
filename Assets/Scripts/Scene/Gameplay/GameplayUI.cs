@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Faisal.Global;
 using Faisal.Message;
 using UnityEngine;
@@ -9,11 +7,21 @@ using TMPro;
 
 namespace Faisal.Scene.Gameplay
 {
-    public class GameplayScene : MonoBehaviour
+    public class GameplayUI : MonoBehaviour
     {
         [SerializeField] private Image _gameOverPanel;
         [SerializeField] private Button _homeButton;
         [SerializeField] private TextMeshProUGUI _winPlayerGold;
+
+        private void OnEnable()
+        {
+           // EventManager.StartListening("WinnerMessage", GetPlayerWin);
+        }
+
+        private void OnDisable()
+        {
+            // EventManager.StartListening("WinnerMessage", GetPlayerWin);
+        }
 
         private void Awake()
         {
@@ -29,7 +37,7 @@ namespace Faisal.Scene.Gameplay
 
         private void GetPlayerWin(object winData)
         {
-            WinnerMessage message = (WinnerMessage) winData;
+            WinnerMessage message = (WinnerMessage)winData;
             _winPlayerGold.text = "You have gold " + message.gold.ToString();
 
             _gameOverPanel.gameObject.SetActive(true);

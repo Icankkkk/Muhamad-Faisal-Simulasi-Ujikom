@@ -37,9 +37,8 @@ namespace Faisal.Scene.Gameplay
                 else
                 {
                     _timeLeft = 0;
-                    _isPlayGame = false;
-                    Debug.Log("Game Over");
-                   // EventManager.TriggerEvent("TimeOverMessage");
+                    _isPlayGame = false;                  
+                    // EventManager.TriggerEvent("OnGameOverMessage");
                 }
             }
         }
